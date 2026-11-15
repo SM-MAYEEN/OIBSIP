@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,35 +7,93 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Animated background blobs (colour follows the temperature) -->
+  <div class="blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
+
   <main class="card">
     <h1>Temperature Converter</h1>
     <p class="subtitle">Convert between Celsius, Fahrenheit and Kelvin.</p>
 
     <form id="converter-form" novalidate>
       <label for="temp-input">Temperature value</label>
-      <input type="text" id="temp-input" inputmode="decimal" autocomplete="off"
-             placeholder="e.g. 25 or -40.5" aria-describedby="error-msg" required>
+      <div class="row">
+        <input type="text" id="temp-input" inputmode="decimal" autocomplete="off"
+               placeholder="e.g. 25 or -40.5" aria-describedby="error-msg" required>
+        <select id="unit-select" aria-label="Input unit">
+          <option value="C">Celsius (°C)</option>
+          <option value="F">Fahrenheit (°F)</option>
+          <option value="K">Kelvin (K)</option>
+        </select>
+      </div>
       <p id="error-msg" class="error" role="alert" aria-live="polite"></p>
 
-      <label for="unit-select">Convert from</label>
-      <select id="unit-select">
-        <option value="C">Celsius (°C)</option>
-        <option value="F">Fahrenheit (°F)</option>
-        <option value="K">Kelvin (K)</option>
-      </select>
+      <label class="check" for="live-toggle">
+        <input type="checkbox" id="live-toggle">
+        Live conversion (convert while I type)
+      </label>
 
-      <button type="submit" id="convert-btn">Convert</button>
+      <div class="actions">
+        <button type="submit" id="convert-btn">Convert</button>
+        <button type="button" id="reset-btn" class="secondary">Reset</button>
+      </div>
     </form>
+
+    <div class="chips-wrap">
+      <p class="chips-title">Quick reference points</p>
+      <div class="chips" id="chips">
+        <button type="button" class="chip" data-value="-273.15" data-unit="C">Absolute zero</button>
+        <button type="button" class="chip" data-value="0" data-unit="C">Water freezes</button>
+        <button type="button" class="chip" data-value="20" data-unit="C">Room temp</button>
+        <button type="button" class="chip" data-value="37" data-unit="C">Body temp</button>
+        <button type="button" class="chip" data-value="100" data-unit="C">Water boils</button>
+      </div>
+    </div>
 
     <section id="results" class="results" aria-live="polite" hidden>
       <h2>Results</h2>
-      <ul>
-        <li><span class="unit">Celsius</span><span class="value" id="out-C">—</span></li>
-        <li><span class="unit">Fahrenheit</span><span class="value" id="out-F">—</span></li>
-        <li><span class="unit">Kelvin</span><span class="value" id="out-K">—</span></li>
-      </ul>
+      <div class="results-grid">
+        <ul class="result-list">
+          <li>
+            <span class="unit">Celsius</span>
+            <span class="value" id="out-C">—</span>
+            <button type="button" class="icon-btn copy-btn" data-copy="C" aria-label="Copy Celsius result">📋</button>
+          </li>
+          <li>
+            <span class="unit">Fahrenheit</span>
+            <span class="value" id="out-F">—</span>
+            <button type="button" class="icon-btn copy-btn" data-copy="F" aria-label="Copy Fahrenheit result">📋</button>
+          </li>
+          <li>
+            <span class="unit">Kelvin</span>
+            <span class="value" id="out-K">—</span>
+            <button type="button" class="icon-btn copy-btn" data-copy="K" aria-label="Copy Kelvin result">📋</button>
+          </li>
+        </ul>
+
+        <div class="thermo" aria-hidden="true">
+          <span class="scale">150°C</span>
+          <div class="tube"><div class="fill" id="thermo-fill"></div></div>
+          <div class="bulb"></div>
+          <span class="scale">−50°C</span>
+        </div>
+      </div>
+
+      <p id="feel" class="feel"></p>
+      <p id="formula" class="formula"></p>
+    </section>
+
+    <section id="history-section" class="history" hidden>
+      <div class="history-head">
+        <h2>History</h2>
+        <button type="button" id="clear-history" class="link-btn">Clear</button>
+      </div>
+      <ul id="history-list"></ul>
     </section>
   </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
