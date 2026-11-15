@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+  Project: Roast & Ritual — Specialty Coffee Landing Page
+  Author: Mayeen Uddin Hasan
+  Location: Chattogram, Bangladesh
+  Tech Stack: Semantic HTML5 & CSS3 (Responsive Flexbox & Grid)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Mayeen Uddin Hasan" />
+  <meta
+    name="description"
+    content="Roast & Ritual — Small-batch specialty coffee landing page designed and built by Mayeen Uddin Hasan."
+  />
+  <title>Roast & Ritual — Small-Batch Specialty Coffee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        Roast &amp; Ritual
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#craft">Our Craft</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#reviews">Community</a></li>
+          <li><a href="#subscribe" class="nav-cta">Subscribe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">Single-Origin • Roasted Every Tuesday</span>
+          <h1>Morning coffee that rewards slowing down.</h1>
+          <p class="hero-subtitle">
+            We source traceable microlots directly from high-altitude family farms and roast in
+            small batches so every pour-over tastes bright, sweet, and alive.
+          </p>
+          <div class="hero-actions">
+            <a href="#subscribe" class="btn btn-primary">Explore Roasts</a>
+            <a href="#craft" class="btn btn-secondary">Our Sourcing</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <strong>48 hrs</strong>
+              <span>Roast-to-door freshness</span>
+            </div>
+            <div class="metric">
+              <strong>88+ SCA</strong>
+              <span>Specialty cup score</span>
+            </div>
+            <div class="metric">
+              <strong>100%</strong>
+              <span>Direct farm trade</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Tasting Card -->
+        <div class="hero-card-wrapper">
+          <article class="tasting-card">
+            <div class="card-badge">Featured Seasonal Lot</div>
+            <div class="coffee-bag">
+              <div class="bag-label">
+                <span class="bag-origin">ETHIOPIA • YIRGACHEFFE</span>
+                <h3>Worka Sakaro</h3>
+                <p class="bag-process">Washed Process • 2,150 MASL</p>
+                <div class="bag-notes">
+                  <span>Bergamot</span>
+                  <span>White Peach</span>
+                  <span>Jasmine</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div>
+                <span class="price-label">250g Whole Bean</span>
+                <strong class="price-value">$19.50</strong>
+              </div>
+              <a href="#subscribe" class="card-link">Reserve Bag &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section 1: Features / Our Craft -->
+    <section class="section section-alt" id="craft">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Why Roast &amp; Ritual</span>
+          <h2>Crafted for clarity in every cup</h2>
+          <p>
+            Great coffee isn't accidental. From harvest elevation to roast curve precision, every
+            detail is calibrated for home brewers.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">01</div>
+            <h3>Direct Farm Partnerships</h3>
+            <p>
+              We pay 40% above Fair Trade minimums directly to smallholder producers, funding soil
+              health and selective hand-picking.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">02</div>
+            <h3>Precision Small-Batch Roasting</h3>
+            <p>
+              Roasted in 12kg drum batches with optical color sorting to highlight natural fruit
+              acidity without smoky bitterness.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">03</div>
+            <h3>Peak Degassing Delivery</h3>
+            <p>
+              Shipped within 24 hours of resting in compostable nitrogen-flushed bags so your beans
+              arrive right at peak flavor window.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section 2: How It Works -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Simple Ritual</span>
+          <h2>From roastery to your counter in three steps</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-item">
+            <span class="step-number">Step 1</span>
+            <h3>Choose Your Brew Profile</h3>
+            <p>
+              Tell us whether you brew filter pour-over, AeroPress, or espresso, and select your
+              preferred roast brightness.
+            </p>
+          </div>
+
+          <div class="step-item">
+            <span class="step-number">Step 2</span>
+            <h3>We Roast to Order</h3>
+            <p>
+              Every Tuesday morning, our head roaster profiles your exact batch—never sitting on a
+              warehouse shelf.
+            </p>
+          </div>
+
+          <div class="step-item">
+            <span class="step-number">Step 3</span>
+            <h3>Brew With Custom Guides</h3>
+            <p>
+              Each bag includes water temperature, grind size, and ratio recipes tailored to that
+              specific harvest.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section 3: Testimonials -->
+    <section class="section section-alt" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Community Notes</span>
+          <h2>Trusted by daily home brewers</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-card">
+            <p>
+              “The Worka Sakaro pour-over completely changed my morning routine. You can actually
+              taste the peach and floral notes without adding anything.”
+            </p>
+            <footer>
+              <strong>Nadia Rahman</strong>
+              <span>V60 Brewer • Subscriber since 2025</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p>
+              “Consistent roast dates and zero guesswork. Their brew recipe card dialed in my
+              espresso extraction on the very second shot.”
+            </p>
+            <footer>
+              <strong>Tariq Mahmud</strong>
+              <span>Home Barista • Bi-weekly Plan</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Banner -->
+    <section class="cta-section" id="subscribe">
+      <div class="container cta-box">
+        <div class="cta-text">
+          <h2>Start your first tasting box today.</h2>
+          <p>Free shipping on your first two-bag discovery set. Pause or cancel anytime.</p>
+        </div>
+        <a href="#top" class="btn btn-light">Get Discovery Box — $34</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand footer-logo">
+          <span class="brand-dot"></span>
+          Roast &amp; Ritual
+        </a>
+        <p>
+          Small-batch specialty coffee roasters dedicated to transparent sourcing and unhurried
+          mornings.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#craft">Our Craft</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#subscribe">Subscriptions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:mayeen.dev@example.com">mayeen.dev@example.com</a></li>
+          <li><span>Chattogram, Bangladesh</span></li>
+          <li><span>Mon–Sat: 8:00 AM – 4:00 PM</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul class="social-links">
+          <li><a href="https://github.com/SM-MAYEEN" aria-label="GitHub">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/sm-mayeen/" aria-label="LinkedIn">LinkedIn</a></li>
+          <li><a href="mayeenuddinhasan" aria-label="Portfolio">Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Roast &amp; Ritual Coffee Co. All rights reserved.</p>
+      <p>Designed &amp; Built by <strong>Mayeen Uddin Hasan</strong></p>
+    </div>
+  </footer>
+</body>
+</html>

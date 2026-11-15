@@ -1,0 +1,630 @@
+/* =========================================
+   Stylesheet: Roast & Ritual Landing Page
+   Author: Mayeen Uddin Hasan
+   Description: Responsive layout using CSS Variables,
+                Flexbox, and CSS Grid (No JS)
+   ========================================= */
+
+/* =========================================
+   1. CSS Variables & Consistent Palette
+   ========================================= */
+:root {
+  --bg-cream: #faf6f0;
+  --bg-sand: #f1e9dd;
+  --surface-white: #ffffff;
+  --espresso-dark: #231712;
+  --espresso-mid: #3c2820;
+  --text-muted: #66564d;
+  --accent-terracotta: #b85d3b;
+  --accent-terracotta-dark: #964729;
+  --border-subtle: #e4d8c8;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-soft: 0 12px 32px rgba(35, 23, 18, 0.07);
+}
+
+/* =========================================
+   2. Reset & Intentional Box-Sizing
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--espresso-dark);
+  background-color: var(--bg-cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* =========================================
+   3. Typography Hierarchy
+   ========================================= */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.18;
+  color: var(--espresso-dark);
+}
+
+h1 {
+  font-size: clamp(2.35rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-terracotta);
+  margin-bottom: 0.75rem;
+}
+
+/* =========================================
+   4. Buttons
+   ========================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--accent-terracotta);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-terracotta-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--espresso-dark);
+  border: 1.5px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+  border-color: var(--espresso-dark);
+}
+
+.btn-light {
+  background-color: var(--bg-cream);
+  color: var(--espresso-dark);
+  white-space: nowrap;
+}
+
+.btn-light:hover {
+  background-color: #ffffff;
+}
+
+/* =========================================
+   5. Sticky Navigation Bar
+   ========================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  gap: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--espresso-dark);
+}
+
+.brand-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-terracotta);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--espresso-mid);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-terracotta);
+}
+
+.nav-links .nav-cta {
+  padding: 0.55rem 1.25rem;
+  background-color: var(--espresso-dark);
+  color: #ffffff;
+  border-radius: 999px;
+}
+
+.nav-links .nav-cta:hover {
+  background-color: var(--accent-terracotta);
+  color: #ffffff;
+}
+
+/* =========================================
+   6. Hero Section
+   ========================================= */
+.hero {
+  padding-block: 4.5rem 5.5rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.hero-subtitle {
+  margin-top: 1.25rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 54ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.25rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.metric strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--espresso-dark);
+}
+
+.metric span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Hero Visual Card */
+.tasting-card {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.card-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background-color: var(--bg-sand);
+  color: var(--espresso-mid);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.coffee-bag {
+  background: linear-gradient(145deg, #2d1e18, #462f25);
+  color: #faf6f0;
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.bag-origin {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #e2b49a;
+  margin-bottom: 0.5rem;
+}
+
+.bag-label h3 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.bag-process {
+  font-size: 0.9rem;
+  color: #d6c8be;
+  margin-bottom: 1.5rem;
+}
+
+.bag-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bag-notes span {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #faf6f0;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.price-label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.price-value {
+  font-size: 1.25rem;
+  color: var(--espresso-dark);
+}
+
+.card-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent-terracotta);
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   7. Content Sections (Features, Process, Reviews)
+   ========================================= */
+.section {
+  padding-block: 5rem;
+}
+
+.section-alt {
+  background-color: var(--bg-sand);
+}
+
+.section-header {
+  max-width: 620px;
+  margin-bottom: 3rem;
+}
+
+.section-header p {
+  margin-top: 0.85rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.feature-card {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--bg-cream);
+  color: var(--accent-terracotta);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 0.65rem;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 0.96rem;
+}
+
+/* Steps Grid */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.step-item {
+  padding: 1.75rem;
+  border-left: 3px solid var(--accent-terracotta);
+  background-color: var(--surface-white);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.step-number {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-terracotta);
+  margin-bottom: 0.5rem;
+}
+
+.step-item h3 {
+  margin-bottom: 0.6rem;
+}
+
+.step-item p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.testimonial-card {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.testimonial-card p {
+  font-size: 1.05rem;
+  color: var(--espresso-mid);
+}
+
+.testimonial-card footer strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--espresso-dark);
+}
+
+.testimonial-card footer span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   8. Call-To-Action Banner
+   ========================================= */
+.cta-section {
+  padding-block: 4.5rem;
+}
+
+.cta-box {
+  background-color: var(--espresso-dark);
+  color: #faf6f0;
+  border-radius: var(--radius-lg);
+  padding: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cta-text h2 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.cta-text p {
+  color: #d6c8be;
+}
+
+/* =========================================
+   9. Footer
+   ========================================= */
+.site-footer {
+  background-color: #19100c;
+  color: #d6c8be;
+  padding-top: 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 0.8fr;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  font-size: 0.92rem;
+  max-width: 32ch;
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.footer-col a:hover {
+  color: #e2b49a;
+}
+
+.footer-bottom {
+  padding-block: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #9e8e84;
+}
+
+.footer-bottom strong {
+  color: #e2b49a;
+  font-weight: 600;
+}
+
+/* =========================================
+   10. Responsive Breakpoints (Tablet & Mobile)
+   ========================================= */
+@media (max-width: 900px) {
+  .hero-grid,
+  .features-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-container {
+    flex-direction: column;
+    padding-block: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.25rem;
+  }
+
+  .testimonials-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-block: 3rem 4rem;
+  }
+
+  .section {
+    padding-block: 3.5rem;
+  }
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#373d39"/><stop offset="1" stop-color="#1c211e"/></linearGradient></defs>
+  <rect width="800" height="540" fill="url(#bg)"/>
+  <rect x="129" y="105" width="544" height="324" rx="8" fill="#161a18" stroke="#d4c9ad" stroke-opacity=".35" stroke-width="3"/>
+  <rect x="151" y="129" width="500" height="276" rx="3" fill="#27322d"/>
+  <rect x="183" y="161" width="436" height="31" rx="3" fill="#35423a"/>
+  <rect x="183" y="213" width="119" height="152" rx="4" fill="#71826c" fill-opacity=".8"/>
+  <rect x="323" y="213" width="296" height="65" rx="4" fill="#d3bd8c" fill-opacity=".55"/>
+  <rect x="323" y="294" width="191" height="71" rx="4" fill="#5d7367"/>
+  <text x="60" y="484" fill="#f5f1e7" fill-opacity=".72" font-family="Arial, sans-serif" font-size="16" letter-spacing="4">REPLACE WITH YOUR PHOTO</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 940">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#35382e" />
+      <stop offset=".55" stop-color="#252b25" />
+      <stop offset="1" stop-color="#171b18" />
+    </linearGradient>
+    <linearGradient id="shirt" x2="1" y2="1">
+      <stop stop-color="#69766a" />
+      <stop offset="1" stop-color="#343f39" />
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#d5ad6d" stop-opacity=".32" />
+      <stop offset="1" stop-color="#d5ad6d" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="760" height="940" fill="url(#bg)" />
+  <ellipse cx="514" cy="250" fill="url(#glow)" rx="340" ry="370" />
+  <circle cx="536" cy="250" r="133" fill="#c99a73" />
+  <path d="M397 254c4-135 44-205 151-205 112 0 171 78 161 226-31-39-72-57-113-63-49-7-89-32-108-62-15 49-48 82-91 104Z" fill="#191b18" />
+  <path d="M348 940c3-254 61-394 174-443l22 59 26-60c119 50 178 193 181 444Z" fill="url(#shirt)" />
+  <path d="M497 500h49l27 62-52 49-52-49Z" fill="#efe4cb" />
+  <path d="M150 99h170M150 115h92M96 783h148" fill="none" stroke="#f0b94f" stroke-opacity=".55" stroke-width="2" />
+  <circle cx="631" cy="725" r="62" fill="none" stroke="#f0b94f" stroke-opacity=".4" />
+  <path d="M607 725h48m-24-24v48" stroke="#f0b94f" stroke-opacity=".6" stroke-width="2" />
+  <text x="42" y="865" fill="#eeeade" fill-opacity=".8" font-family="Arial, sans-serif" font-size="17" letter-spacing="4">YOUR PORTRAIT GOES HERE</text>
+</svg>
